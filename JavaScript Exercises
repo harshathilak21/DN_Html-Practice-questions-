@@ -1,0 +1,170 @@
+1. JavaScript Basics & Setup
+Html 
+<script src="main.js"></script>
+Js 
+console.log("Welcome to the Community Portal");
+
+window.onload = function() {
+    alert("Page Loaded");
+};
+
+2. Data Types and Operators
+const eventName = "Music Fest";
+const eventDate = "10-06-2026";
+let seats = 50;
+
+console.log(`${eventName} on ${eventDate}`);
+
+seats--;
+console.log(seats);
+
+3. Conditionals, Loops, Error Handling
+let seats = 10;
+
+if(seats > 0){
+    console.log("Registration Open");
+}else{
+    console.log("Event Full");
+}
+
+let events = ["Music","Sports","Workshop"];
+
+events.forEach(event=>{
+    console.log(event);
+});
+
+try{
+    throw "Registration Error";
+}
+catch(err){
+    console.log(err);
+}
+
+4. Functions and Closures
+function addEvent(name){
+    console.log(name + " Added");
+}
+
+function registerUser(user){
+    console.log(user + " Registered");
+}
+
+function counter(){
+    let count = 0;
+    return function(){
+        count++;
+        return count;
+    };
+}
+
+let reg = counter();
+console.log(reg());
+
+5. Objects and Prototypes
+function Event(name,seats){
+    this.name = name;
+    this.seats = seats;
+}
+
+Event.prototype.checkAvailability = function(){
+    return this.seats > 0;
+};
+
+let e1 = new Event("Music",20);
+
+console.log(e1.checkAvailability());
+
+console.log(Object.entries(e1));
+
+6. Arrays and Methods
+let events = ["Music","Sports"];
+
+events.push("Workshop");
+
+let music = events.filter(e => e=="Music");
+
+let cards = events.map(e => "Event : " + e);
+
+console.log(cards);
+
+7. DOM Manipulation
+Html
+<div id="events"></div>
+Js
+let container =
+document.querySelector("#events");
+
+let card =
+document.createElement("div");
+
+card.innerText = "Music Event";
+
+container.appendChild(card);
+
+8. Event Handling
+Html
+<button onclick="register()">
+Register
+</button>
+<select onchange="filterEvent()">
+<option>Music</option>
+<option>Sports</option>
+</select>
+Js 
+<input type="text"
+onkeydown="searchEvent()">
+
+function register(){
+    alert("Registered");
+}
+
+9. Async JS (Promises)
+fetch("data.json")
+.then(res => res.json())
+.then(data => console.log(data))
+.catch(err => console.log(err));
+
+async function getData(){
+    let res = await fetch("data.json");
+    let data = await res.json();
+    console.log(data);
+}
+
+getData();
+
+10. Modern JavaScript Features
+const eventName = "Music";
+
+function register(name="Guest"){
+    console.log(name);
+}
+
+const event = {
+    name:"Music",
+    seats:50
+};
+
+const {name,seats} = event;
+
+let copy = [...[1,2,3]];
+
+11. Working with Forms
+Html
+<form id="form">
+<input name="username">
+<input name="email">
+<button>Submit</button>
+</form>
+Js
+document.getElementById("form")
+.addEventListener("submit",function(event){
+
+event.preventDefault();
+
+let name =
+this.elements["username"].value;
+
+if(name==""){
+    alert("Enter Name");
+}
+});
